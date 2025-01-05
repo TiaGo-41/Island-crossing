@@ -2,6 +2,9 @@ import pygame
 import pytmx
 import pyscroll
 
+from player import Player
+
+
 
 
 class Game:
@@ -18,7 +21,7 @@ class Game:
         map_layer.zoom = 1.5
 
         #generer le joueur
-        self.player = Player()
+        self.player = Player(10, 20)
 
         #dessiner les calques
         self.groupe = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=1)
@@ -31,6 +34,7 @@ class Game:
 
         while running:
 
+            self.group.update()
             self.groupe.draw(self.screen)
             pygame.display.flip()
 
